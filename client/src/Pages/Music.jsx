@@ -87,7 +87,7 @@ const ImageSlider = ({ slides }) => {
     const [currentIndex, setCurrentIndex] = useState(randomNumberSlide);
 
     const [currentMusicIndex, setCurrentMusicIndex] = useState(randomNumber);
-    const [volume, setVolume] = useState(Number(60)); // Initial volume value
+    const [volume, setVolume] = useState(Number(100)); // Initial volume value
     const audioRef = useRef(null);
 
     const [isRainPlaying, setIsRainPlaying] = useState(false);
@@ -109,7 +109,7 @@ const ImageSlider = ({ slides }) => {
         trafficAudioRef.current.volume = 1;
         }
         if (peopleAudioRef.current) {
-        peopleAudioRef.current.volume = 0.29;
+        peopleAudioRef.current.volume = 0.19;
         }
         if (fireAudioRef.current) {
         fireAudioRef.current.volume = 0.5;
@@ -175,7 +175,6 @@ const ImageSlider = ({ slides }) => {
         await audio.pause();
         setIsPlaying(false);
 
-        setCurrentMusicIndex((currentMusicIndex + 1) % musicList.length);
 
         goToNext();
         audio = audioRef.current;
@@ -194,7 +193,6 @@ const ImageSlider = ({ slides }) => {
         else
             setCurrentMusicIndex(currentMusicIndex - 1)
 
-        goToPrevious();
         audio = audioRef.current;
         await audio.play();
         await setIsPlaying(true);
