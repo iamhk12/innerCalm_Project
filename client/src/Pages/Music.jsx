@@ -161,7 +161,7 @@ const ImageSlider = ({ slides }) => {
         const isFirstSlide = currentIndex === 0;
         const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
         setCurrentIndex(newIndex);
-
+        
 
     };
     const goToNext = () => {
@@ -175,8 +175,11 @@ const ImageSlider = ({ slides }) => {
         await audio.pause();
         setIsPlaying(false);
 
+        if (currentMusicIndex === musicList.length - 1)
+            setCurrentMusicIndex(0)
+        else
+            setCurrentMusicIndex(currentMusicIndex + 1)
 
-        goToNext();
         audio = audioRef.current;
         await audio.play();
         await setIsPlaying(true);
