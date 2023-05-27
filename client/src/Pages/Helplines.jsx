@@ -1,10 +1,51 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Nav from '../components/Nav_nothome'
 import Footer from '../components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Helplines.css'
+import './Helplines.css';
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
-const Helplines = () => {
+const Helplines = () => {;
+    const navigate = useNavigate();
+    const colref = useRef([]);
+   
+   // no use but dont removee
+    const [dabbaa , setdabba] = useState([]);
+    useEffect(()=>{
+         setdabba(colref.current);
+         console.log(colref.current);
+    },[colref])
+    // 
+
+    const dabba=document.querySelectorAll(".col-sm");
+    console.log(dabba);
+    const fungi = ()=>{
+        const trigger = window.innerHeight / 5*4;
+        dabba.forEach((box)=>{
+            if(box.getBoundingClientRect().top < trigger){
+                box.classList.add("show");
+            }else{
+                box.classList.remove("show");
+            }
+        })
+    }
+    const reveal = ()=>{
+        const main = document.querySelectorAll(".hoi");
+        const trigger = window.innerHeight;
+        const revealpoint = 150;
+        main.forEach((box)=>{
+            if(box.getBoundingClientRect().top < trigger-revealpoint){
+                box.classList.add("active");
+            }else{
+                box.classList.remove("active");
+            }
+        })
+    }
+    window.addEventListener('scroll',fungi);
+    window.addEventListener('scroll',reveal);
+    fungi();
+    reveal();
 
     useEffect(() => {
         // Update document title when component mounts
@@ -21,12 +62,12 @@ const Helplines = () => {
         <>
             <Nav />
             <div className="helplinespage">
-                <div className="t1">
+                <div className="heading">
                     <h1>HELPLINES</h1>
                 </div>
-                <div className="t2">
+                <div className="t2 hoi">
                     <div className="row">
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm show">
                             <div className="subheading">
                                 <h2>Mitram Foundation</h2>
                             </div>
@@ -38,11 +79,11 @@ const Helplines = () => {
                                 <p>Helpline : 080 2572 2573, +91 901 9708133</p>
                             </div>
                             <div className="website">
-                                <a className="btn2" href="https://www.mitramfoundation.org/">Visit</a>
+                                <a className="btn" href="https://www.mitramfoundation.org/">visit</a>
                             </div>
                         </div>
 
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm show">
                             <div className="subheading">
                                 <h2>Parivarthan</h2>
                             </div>
@@ -54,24 +95,23 @@ const Helplines = () => {
                                 <p>Helpline : +91-7676602602</p>
                             </div>
                             <div className="website">
-                                <a className="btn2" href="https://parivarthan.org/">Visit</a>
+                            <a className="btn" href="https://parivarthan.org/">visit</a>
                             </div>
                         </div>
 
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm">
                             <div className="subheading">
                                 <h2>Vandrevala Foundation</h2>
                             </div>
                             <div className="info">
                                 <p>Cyrus & Priya Vandrevala Foundation is a non-profit organisation that aims to provide significant
-                                    funding and aid contributions for those suffering from mental health problems and illnesses in
-                                    India.</p>
+                                    funding and aid contributions for those suffering from mental health problems.</p>
                             </div>
                             <div className="Helpline">
                                 <p>Helpline : 9999 666 555 | +1(256)6662142</p>
                             </div>
                             <div className="website">
-                                <a className="btn2" href="https://www.vandrevalafoundation.com/">Visit</a>
+                            <a className="btn" href="https://www.vandrevalafoundation.com/">visit</a>
                             </div>
                         </div>
                     </div>
@@ -80,9 +120,9 @@ const Helplines = () => {
                 <div className="border">
                 </div>
 
-                <div className="t1">
+                <div className="t1 hoi">
                     <div className="row">
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm">
                             <div className="subheading">
                                 <h2>Sangath</h2>
                             </div>
@@ -94,10 +134,10 @@ const Helplines = () => {
                                 <p>Helpline: 011-41198666</p>
                             </div>
                             <div className="website">
-                                <a className="btn" href="https://sangath.in/">Visit</a>
+                            <a className="btn" href="https://sangath.in/">visit</a>
                             </div>
                         </div>
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm">
                             <div className="subheading">
                                 <h2>Voice That Cares (ROCF)</h2>
                             </div>
@@ -109,10 +149,10 @@ const Helplines = () => {
                                 <p>Helpline: 8448-8448-45</p>
                             </div>
                             <div className="website">
-                                <a className="btn" href="https://www.rocf.org/voice-that-cares/">Visit</a>
+                            <a className="btn" href="https://www.rocf.org/voice-that-cares/">visit</a>
                             </div>
                         </div>
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm">
                             <div className="subheading">
                                 <h2>Connecting Trust</h2>
                             </div>
@@ -121,18 +161,18 @@ const Helplines = () => {
                                     feeling low, distressed and/or suicidal.</p>
                             </div>
                             <div className="Helpline">
-                                <p>Helpline: +91-9922001122, +91-9922004305</p>
+                                <p>Helpline: +91-9922001122</p>
                             </div>
                             <div className="website">
-                                <a className="btn" href="https://connectingngo.org">Visit</a>
+                            <a className="btn" href="https://connectingngo.org">visit</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="t2">
+                <div className="t2 hoi">
                     <div className="row">
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm">
                             <div className="subheading">
                                 <h2>Roshni Trust</h2>
                             </div>
@@ -144,7 +184,7 @@ const Helplines = () => {
                                 <p>Helpline: 040-66202000, 040-66202001</p>
                             </div>
                         </div>
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm">
                             <div className="subheading">
                                 <h2>Lifeline</h2>
                             </div>
@@ -156,7 +196,7 @@ const Helplines = () => {
                                 <p>Helpline: 033-40447437, +91-9088030303</p>
                             </div>
                         </div>
-                        <div className="col-sm">
+                        <div ref={colref} className="col-sm">
                             <div className="subheading">
                                 <h2>Mann Talks</h2>
                             </div>
@@ -168,7 +208,7 @@ const Helplines = () => {
                                 <p>Helpline: +91-8686139139</p>
                             </div>
                             <div className="website">
-                                <a className="btn2" href="http://www.manntalks.org">Visit</a>
+                            <a className="btn" href="http://www.manntalks.org">visit</a>
                             </div>
                         </div>
                     </div>
