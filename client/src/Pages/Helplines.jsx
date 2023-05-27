@@ -7,10 +7,12 @@ import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 
 const Helplines = () => {;
+ // eslint-disable-next-line
     const navigate = useNavigate();
     const colref = useRef([]);
    
    // no use but dont removee
+ // eslint-disable-next-line
     const [dabbaa , setdabba] = useState([]);
     useEffect(()=>{
          setdabba(colref.current);
