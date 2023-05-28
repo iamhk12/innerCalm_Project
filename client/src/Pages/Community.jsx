@@ -31,7 +31,6 @@ const Community = () => {
             setSubErr(true)
             return;
         }
-        handleCloseForm();
        
         fetch('https://innercallmserver.onrender.com/newpost', {
             method: 'POST',
@@ -43,6 +42,7 @@ const Community = () => {
             if (response.status === 200) {
                 setName("")
                 setStory("")
+                handleCloseForm();
                 FetchPosts()
 
             } else {
@@ -69,8 +69,8 @@ const Community = () => {
     // }
 
     const handleCloseForm = () => {
-//         setName("")
-//         setStory("")
+        setName("")
+        setStory("")
         setShowForm(false);
         setSubErr(false)
     };
