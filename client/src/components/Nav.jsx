@@ -18,9 +18,7 @@ const Nav = () => {
                 </div>
                 
                 <ul  style={{marginBottom : "0px", paddingLeft: "0"}} className={open ? "navbar__list active" : "navbar__list"}>
-//                     <li>
-//                         <a className='portalBtn' href="https://innercalm-network.netlify.app">InnerCalm Network ✨</a>
-//                     </li>
+
                     <li>
                         <NavLink to="/community">Community</NavLink>
                     </li>
